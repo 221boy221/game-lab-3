@@ -1,21 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TempMovement : MonoBehaviour {
+public class Player : MonoBehaviour {
 
     int moveSpeed = 8;
     float horiz = 0;
-    float vert = 0;
     public bool haveControl = false;
 
     void FixedUpdate() {
         if (haveControl) {
-            vert = Input.GetAxis("Vertical");
             horiz = Input.GetAxis("Horizontal");
-            Vector2 newVelocity = (transform.right * horiz * moveSpeed) + (transform.forward * vert * moveSpeed);
+            Vector2 newVelocity = (transform.right * horiz * moveSpeed);
             Vector2 myVelocity = GetComponent<Rigidbody2D>().velocity;
             myVelocity.x = newVelocity.x;
-            //myVelocity.z = newVelocity.z;
 
             if (myVelocity != GetComponent<Rigidbody2D>().velocity) {
                 if (Network.isServer) {

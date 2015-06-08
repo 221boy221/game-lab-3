@@ -58,7 +58,7 @@ public class NetworkManager : MonoBehaviour {
 
         foreach(GameObject thisPlayer in players) {
             if(thisPlayer.GetComponent<NetworkView>().viewID == playerID) {
-                thisPlayer.GetComponent<TempMovement>().haveControl = true;
+                thisPlayer.GetComponent<Player>().haveControl = true;
                 Transform myCamera = thisPlayer.transform.Find("Camera");
                 myCamera.GetComponent<Camera>().enabled = true;
                 myCamera.GetComponent<Camera>().GetComponent<AudioListener>().enabled = true;

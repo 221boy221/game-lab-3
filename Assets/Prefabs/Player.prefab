@@ -31,7 +31,6 @@ GameObject:
   - 61: {fileID: 6180456}
   - 50: {fileID: 5032328}
   - 95: {fileID: 9575306}
-  - 114: {fileID: 11472312}
   - 61: {fileID: 6157674}
   - 148: {fileID: 14860436}
   - 114: {fileID: 11447162}
@@ -182,19 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040dac791b606e24fba8f056cb8859b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  haveControl: 0
---- !u!114 &11472312
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189716}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1808c9c67edf1e14790bda0b9eea843d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
   haveControl: 0
 --- !u!124 &12439870
 Behaviour:

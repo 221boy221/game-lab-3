@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour 
+public class OldPlayer : MonoBehaviour 
 {
     private float speed;
     private Animator anim;
     public int health;
     bool inRange;
-    private Player enemy;
+    private OldPlayer enemy;
     private bool attacked;
     private int lowAttack;
     private int midAttack;
@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        enemy = other.GetComponent<Player>();
+        enemy = other.GetComponent<OldPlayer>();
     }
     void OnTriggerExit2D()
     {
