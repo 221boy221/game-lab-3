@@ -118,13 +118,13 @@ public class Player : MonoBehaviour
         enemy = null;
     }
     [RPC]
-    void movePlayer(Vector3 playerVelocity) {
+    void movePlayer(Vector2 playerVelocity) {
         body.velocity = playerVelocity;
         GetComponent<NetworkView>().RPC("updatePlayer", RPCMode.OthersBuffered, transform.position);
     }
 
     [RPC]
-    void updatePlayer(Vector3 playerPos) {
+    void updatePlayer(Vector2 playerPos) {
         transform.position = playerPos;
     }
 }
