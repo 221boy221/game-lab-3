@@ -6,7 +6,15 @@ public class Player : MonoBehaviour {
     int moveSpeed = 8;
     float horiz = 0;
     public bool haveControl = false;
-
+    private float speed;
+    private Animator anim;
+    public int health;
+    private Player enemy;
+    private bool attacked;
+    private int lowAttack;
+    private int midAttack;
+    private int lowBlock;
+    private int midBlock;
     void FixedUpdate() {
         if (haveControl) {
             horiz = Input.GetAxis("Horizontal");
