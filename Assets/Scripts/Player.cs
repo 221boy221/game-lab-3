@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public AnimatorStateInfo currentBaseState;
     public bool haveControl = false;
     private Rigidbody2D body;
+    private NetworkView _networkView;
     float horiz = 0;
 	void Start () 
     {
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
         lowBlock = Animator.StringToHash("BlockMid");
         midBlock = Animator.StringToHash("BlockLow");
         body = GetComponent<Rigidbody2D>();
+        _networkView = GetComponent<NetworkView>();
         
 	}
 	void FixedUpdate()
@@ -39,13 +41,13 @@ public class Player : MonoBehaviour
 
         if (myVelocity != body.velocity)
         {
-            if (Network.isServer)
+            if (_networkView.isMine)
             {
                 movePlayer(myVelocity);
             }
             else
             {
-                GetComponent<NetworkView>().RPC("movePlayer", RPCMode.Server, myVelocity);
+                GetComponent<NetworkView>().RPC("movePlayer", RPCMode.Server, (Vector3)myVelocity);
             }
         }
     }
@@ -118,8 +120,8 @@ public class Player : MonoBehaviour
         enemy = null;
     }
     [RPC]
-    void movePlayer(Vector2 playerVelocity) {
-        body.velocity = playerVelocity;
+    void movePlayer(Vector3 playerVelocity) {
+        GetComponent<Rigidbody2D>().velocity = playerVelocity;
         GetComponent<NetworkView>().RPC("updatePlayer", RPCMode.OthersBuffered, transform.position);
     }
 
