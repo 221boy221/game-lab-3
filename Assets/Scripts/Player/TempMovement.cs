@@ -12,16 +12,16 @@ public class TempMovement : MonoBehaviour {
         if (haveControl) {
             vert = Input.GetAxis("Vertical");
             horiz = Input.GetAxis("Horizontal");
-            Vector3 newVelocity = (transform.right * horiz * moveSpeed) + (transform.forward * vert * moveSpeed);
-            Vector3 myVelocity = GetComponent<Rigidbody>().velocity;
+            Vector2 newVelocity = (transform.right * horiz * moveSpeed) + (transform.forward * vert * moveSpeed);
+            Vector2 myVelocity = GetComponent<Rigidbody2D>().velocity;
             myVelocity.x = newVelocity.x;
-            myVelocity.z = newVelocity.z;
+            //myVelocity.z = newVelocity.z;
 
-            if (myVelocity != GetComponent<Rigidbody>().velocity) {
+            if (myVelocity != GetComponent<Rigidbody2D>().velocity) {
                 if (Network.isServer) {
                     movePlayer(myVelocity);
                 } else {
-                    GetComponent<NetworkView>().RPC("movePlayer", RPCMode.Server, myVelocity);
+                    GetComponent<NetworkView>().RPC("movePlayer", RPCMode.Server, (Vector3)myVelocity);
                 }
             }
         }
@@ -29,7 +29,7 @@ public class TempMovement : MonoBehaviour {
 
     [RPC]
     void movePlayer(Vector3 playerVelocity) {
-        GetComponent<Rigidbody>().velocity = playerVelocity;
+        GetComponent<Rigidbody2D>().velocity = playerVelocity;
         GetComponent<NetworkView>().RPC("updatePlayer", RPCMode.OthersBuffered, transform.position);
     }
 

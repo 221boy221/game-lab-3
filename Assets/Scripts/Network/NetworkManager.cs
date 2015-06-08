@@ -4,12 +4,12 @@ using System.Collections;
 
 public class NetworkManager : MonoBehaviour {
 
-    public Transform playerPrefab;
+    public Transform player;
     private string registeredName = "bestoked";
     private float refreshRequestLength = 3.0f;
     private HostData[] hostData;
     public string chosenGameName = "";
-    public NetworkPlayer user;
+    public NetworkPlayer myPlayer;
 
     private string _serverIP = "172.17.57.28";
 
@@ -27,27 +27,26 @@ public class NetworkManager : MonoBehaviour {
  
     void OnServerInitialized(){ 
         if(Network.isServer){
-            user = Network.player;
-            makePlayer(user);
+            myPlayer = Network.player;
+            makePlayer(myPlayer);
         }
     }
 
     void OnConnectedToServer() {
-        user = Network.player;
-        GetComponent<NetworkView>().RPC("makePlayer", RPCMode.Server, user);
+        myPlayer = Network.player;
+        GetComponent<NetworkView>().RPC("makePlayer", RPCMode.Server, myPlayer);
     }
 
     [RPC]
-    void makePlayer(NetworkPlayer thisPlayer){
-        
-        if (thisPlayer != user) {
-            Transform newPlayer = Network.Instantiate(playerPrefab, transform.position + Vector3.left, transform.rotation, 0) as Transform;
-
+    void makePlayer(NetworkPlayer thisPlayer)
+    {
+        Transform newPlayer = Network.Instantiate (player, transform.position, transform.rotation, 0) as Transform;
+        if (thisPlayer != myPlayer) 
+        {
             GetComponent<NetworkView>().RPC ("enableCamera", thisPlayer, newPlayer.GetComponent<NetworkView>().viewID);
         }
-        else {
-            Transform newPlayer = Network.Instantiate(playerPrefab, transform.position + Vector3.right, transform.rotation, 0) as Transform;
-
+        else 
+        {
             enableCamera(newPlayer.GetComponent<NetworkView>().viewID);
         }
     }
@@ -59,7 +58,7 @@ public class NetworkManager : MonoBehaviour {
 
         foreach(GameObject thisPlayer in players) {
             if(thisPlayer.GetComponent<NetworkView>().viewID == playerID) {
-                thisPlayer.GetComponent<Player>().haveControl = true;
+                thisPlayer.GetComponent<TempMovement>().haveControl = true;
                 Transform myCamera = thisPlayer.transform.Find("Camera");
                 myCamera.GetComponent<Camera>().enabled = true;
                 myCamera.GetComponent<Camera>().GetComponent<AudioListener>().enabled = true;
