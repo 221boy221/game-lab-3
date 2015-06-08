@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
     private int lowBlock;
     private int midBlock;
     public AnimatorStateInfo currentBaseState;
+    public bool haveControl = false;
+    private Rigidbody2D body;
+    float horiz = 0;
 	void Start () 
     {
         anim = GetComponent<Animator>();
@@ -24,18 +27,30 @@ public class Player : MonoBehaviour
         lowAttack = Animator.StringToHash("AttackLow");
         lowBlock = Animator.StringToHash("BlockMid");
         midBlock = Animator.StringToHash("BlockLow");
+        body = GetComponent<Rigidbody2D>();
+        
 	}
-	
+	void FixedUpdate()
+    {
+        horiz = Input.GetAxis("Horizontal");
+        Vector2 newVelocity = (transform.right * horiz * speed);
+        Vector2 myVelocity = body.velocity;
+        myVelocity.x = newVelocity.x;
+
+        if (myVelocity != body.velocity)
+        {
+            if (Network.isServer)
+            {
+                movePlayer(myVelocity);
+            }
+            else
+            {
+                GetComponent<NetworkView>().RPC("movePlayer", RPCMode.Server, myVelocity);
+            }
+        }
+    }
 	void Update () 
     {
-	    if(Input.GetKey(KeyCode.A))
-        {
-            transform.position += Vector3.left * Time.deltaTime * speed;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += Vector3.right * Time.deltaTime * 5;
-        }
         if (Input.GetKeyDown(KeyCode.E))
         {
             anim.SetBool("BlockMid", true);
@@ -101,5 +116,15 @@ public class Player : MonoBehaviour
     void OnTriggerExit2D()
     {
         enemy = null;
+    }
+    [RPC]
+    void movePlayer(Vector3 playerVelocity) {
+        body.velocity = playerVelocity;
+        GetComponent<NetworkView>().RPC("updatePlayer", RPCMode.OthersBuffered, transform.position);
+    }
+
+    [RPC]
+    void updatePlayer(Vector3 playerPos) {
+        transform.position = playerPos;
     }
 }

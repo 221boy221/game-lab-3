@@ -4,12 +4,12 @@ using System.Collections;
 
 public class NetworkManager : MonoBehaviour {
 
-    public Transform player;
+    public Transform playerPrefab;
     private string registeredName = "bestoked";
     private float refreshRequestLength = 3.0f;
     private HostData[] hostData;
     public string chosenGameName = "";
-    public NetworkPlayer myPlayer;
+    public NetworkPlayer user;
 
     private string _serverIP = "172.17.57.28";
 
@@ -27,23 +27,27 @@ public class NetworkManager : MonoBehaviour {
  
     void OnServerInitialized(){ 
         if(Network.isServer){
-            myPlayer = Network.player;
-            makePlayer(myPlayer);
+            user = Network.player;
+            makePlayer(user);
         }
     }
 
     void OnConnectedToServer() {
-        myPlayer = Network.player;
-        GetComponent<NetworkView>().RPC("makePlayer", RPCMode.Server, myPlayer);
+        user = Network.player;
+        GetComponent<NetworkView>().RPC("makePlayer", RPCMode.Server, user);
     }
 
     [RPC]
     void makePlayer(NetworkPlayer thisPlayer){
-        Transform newPlayer = Network.Instantiate (player, transform.position, transform.rotation, 0) as Transform;
-        if (thisPlayer != myPlayer) {
+        
+        if (thisPlayer != user) {
+            Transform newPlayer = Network.Instantiate(playerPrefab, transform.position + Vector3.left, transform.rotation, 0) as Transform;
+
             GetComponent<NetworkView>().RPC ("enableCamera", thisPlayer, newPlayer.GetComponent<NetworkView>().viewID);
         }
         else {
+            Transform newPlayer = Network.Instantiate(playerPrefab, transform.position + Vector3.right, transform.rotation, 0) as Transform;
+
             enableCamera(newPlayer.GetComponent<NetworkView>().viewID);
         }
     }
@@ -55,7 +59,7 @@ public class NetworkManager : MonoBehaviour {
 
         foreach(GameObject thisPlayer in players) {
             if(thisPlayer.GetComponent<NetworkView>().viewID == playerID) {
-                thisPlayer.GetComponent<TempMovement>().haveControl = true;
+                thisPlayer.GetComponent<Player>().haveControl = true;
                 Transform myCamera = thisPlayer.transform.Find("Camera");
                 myCamera.GetComponent<Camera>().enabled = true;
                 myCamera.GetComponent<Camera>().GetComponent<AudioListener>().enabled = true;
