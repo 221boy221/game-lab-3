@@ -124,7 +124,7 @@ public class Player : MonoBehaviour
     }
 
     [RPC]
-    void updatePlayer(Vector2 playerPos) {
+    void updatePlayer(Vector3 playerPos) {
         transform.position = playerPos;
     }
 }
