@@ -98,7 +98,7 @@ GameObject:
   - 148: {fileID: 1065853848}
   - 114: {fileID: 1065853847}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: NetworkManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,8 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed71f5ad5e26e824295db1aec4811e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 474154, guid: 25e44ee233daa8f4cbdec83a18d6c9ff, type: 2}
-  chosenGameName: 
+  playerPrefab: {fileID: 474154, guid: 25e44ee233daa8f4cbdec83a18d6c9ff, type: 2}
 --- !u!148 &1065853848
 NetworkView:
   m_ObjectHideFlags: 0
