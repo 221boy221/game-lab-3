@@ -4,14 +4,16 @@ using System.Collections;
 
 public class NetworkManager : MonoBehaviour {
 
-    public Transform player;
-    private string registeredName = "bestoked";
-    private float refreshRequestLength = 3.0f;
-    private HostData[] hostData;
-    public string chosenGameName = "";
+    private string _serverIP = "172.17.57.28";
+    private string _gameName = "CritterCombat";
+    private string _lobbyName = "";
+
+    private float _refreshRequestLength = 3.0f;
+    private HostData[] _hostData;
+
+    public Transform playerPrefab;
     public NetworkPlayer myPlayer;
 
-    private string _serverIP = "172.17.57.28";
 
     void Start() {
         MasterServer.ipAddress = _serverIP;
@@ -20,13 +22,13 @@ public class NetworkManager : MonoBehaviour {
         Network.proxyPort = 50005;
     }
 
-    private void StartServer(){
-        Network.InitializeServer (16, Random.Range(2000,2500),!Network.HavePublicAddress());
-        MasterServer.RegisterHost(registeredName, chosenGameName);
+    private void StartServer() {
+        Network.InitializeServer(16, Random.Range(2000, 2500), !Network.HavePublicAddress());
+        MasterServer.RegisterHost(_gameName, _lobbyName);
     }
- 
-    void OnServerInitialized(){ 
-        if(Network.isServer){
+
+    void OnServerInitialized() {
+        if (Network.isServer) {
             myPlayer = Network.player;
             makePlayer(myPlayer);
         }
@@ -38,15 +40,11 @@ public class NetworkManager : MonoBehaviour {
     }
 
     [RPC]
-    void makePlayer(NetworkPlayer thisPlayer)
-    {
-        Transform newPlayer = Network.Instantiate (player, transform.position, transform.rotation, 0) as Transform;
-        if (thisPlayer != myPlayer) 
-        {
-            GetComponent<NetworkView>().RPC ("enableCamera", thisPlayer, newPlayer.GetComponent<NetworkView>().viewID);
-        }
-        else 
-        {
+    void makePlayer(NetworkPlayer thisPlayer) {
+        Transform newPlayer = Network.Instantiate(playerPrefab, transform.position, transform.rotation, 0) as Transform;
+        if (thisPlayer != myPlayer) {
+            GetComponent<NetworkView>().RPC("enableCamera", thisPlayer, newPlayer.GetComponent<NetworkView>().viewID);
+        } else {
             enableCamera(newPlayer.GetComponent<NetworkView>().viewID);
         }
     }
@@ -54,10 +52,10 @@ public class NetworkManager : MonoBehaviour {
     [RPC]
     void enableCamera(NetworkViewID playerID) {
         GameObject[] players;
-        players = GameObject.FindGameObjectsWithTag ("Player");
+        players = GameObject.FindGameObjectsWithTag("Player");
 
-        foreach(GameObject thisPlayer in players) {
-            if(thisPlayer.GetComponent<NetworkView>().viewID == playerID) {
+        foreach (GameObject thisPlayer in players) {
+            if (thisPlayer.GetComponent<NetworkView>().viewID == playerID) {
                 thisPlayer.GetComponent<Player>().haveControl = true;
                 Transform myCamera = thisPlayer.transform.Find("Camera");
                 myCamera.GetComponent<Camera>().enabled = true;
@@ -68,35 +66,35 @@ public class NetworkManager : MonoBehaviour {
 
     }
 
-    public IEnumerator RefreshHostList (){
-        MasterServer.RequestHostList (registeredName);
-        float timeEnd = Time.time + refreshRequestLength;
+    public IEnumerator RefreshHostList() {
+        MasterServer.RequestHostList(_gameName);
+        float timeEnd = Time.time + _refreshRequestLength;
         while (Time.time < timeEnd) {
-            hostData = MasterServer.PollHostList();
+            _hostData = MasterServer.PollHostList();
             yield return new WaitForEndOfFrame();
         }
     }
- 
-    public void OnGUI(){
+
+    public void OnGUI() {
         if (Network.isClient || Network.isServer) {
             return;
         }
-        if(chosenGameName == ""){
-            GUI.Label(new Rect(Screen.width/2 - Screen.width/10, Screen.height/2 - Screen.height/20, Screen.width/5,Screen.height/20), "Game Name");
+        if (_lobbyName == "") {
+            GUI.Label(new Rect(Screen.width / 2 - Screen.width / 10, Screen.height / 2 - Screen.height / 20, Screen.width / 5, Screen.height / 20), "Lobby Name");
         }
 
-        chosenGameName = GUI.TextField(new Rect(Screen.width/2 - Screen.width/10, Screen.height/2 - Screen.height/20, Screen.width/5,Screen.height/20), chosenGameName, 25);
+        _lobbyName = GUI.TextField(new Rect(Screen.width / 2 - Screen.width / 10, Screen.height / 2 - Screen.height / 20, Screen.width / 5, Screen.height / 20), _lobbyName, 25);
 
-        if (GUI.Button (new Rect (Screen.width/2 - Screen.width/10, Screen.height/2, Screen.width/5,Screen.height/10), "Start New Server")) {
+        if (GUI.Button(new Rect(Screen.width / 2 - Screen.width / 10, Screen.height / 2, Screen.width / 5, Screen.height / 10), "Start New Server")) {
             StartServer();
         }
-        if (GUI.Button (new Rect (Screen.width/2 - Screen.width/10, Screen.height/2 + Screen.height/10, Screen.width/5,Screen.height/10), "Find Servers")) {
+        if (GUI.Button(new Rect(Screen.width / 2 - Screen.width / 10, Screen.height / 2 + Screen.height / 10, Screen.width / 5, Screen.height / 10), "Find Servers")) {
             StartCoroutine(RefreshHostList());
         }
-        if (hostData != null) {
-            for(int i = 0; i < hostData.Length; i++) {
-                if(GUI.Button (new Rect (Screen.width/2 - Screen.width/10, Screen.height/2 + ((Screen.height/20)*(i+4)), Screen.width/5,Screen.height/20), hostData[i].gameName)) {
-                    Network.Connect(hostData[i]);
+        if (_hostData != null) {
+            for (int i = 0; i < _hostData.Length; i++) {
+                if (GUI.Button(new Rect(Screen.width / 2 - Screen.width / 10, Screen.height / 2 + ((Screen.height / 20) * (i + 4)), Screen.width / 5, Screen.height / 20), _hostData[i].gameName)) {
+                    Network.Connect(_hostData[i]);
                 }
             }
         }
