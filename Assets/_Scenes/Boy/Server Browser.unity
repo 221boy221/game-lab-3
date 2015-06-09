@@ -251,7 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed71f5ad5e26e824295db1aec4811e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 474154, guid: 25e44ee233daa8f4cbdec83a18d6c9ff, type: 2}
+  playerPrefab: {fileID: 466978, guid: 25e44ee233daa8f4cbdec83a18d6c9ff, type: 2}
+  cameraPrefab: {fileID: 406932, guid: f5b25a28186abe74fbafa64b181b83a3, type: 2}
   lobbyPanel: {fileID: 109038, guid: c9c43c0038d55244cb55185395453c61, type: 2}
   lobbyBrowser: {fileID: 374132815}
 --- !u!4 &480796943
@@ -384,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -478,7 +479,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: .288494796, g: .439374238, b: .676470578, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -488,7 +489,7 @@ Camera:
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
