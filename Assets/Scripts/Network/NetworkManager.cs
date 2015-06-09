@@ -1,18 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 [ExecuteInEditMode]
 
 public class NetworkManager : MonoBehaviour {
 
     private string _serverIP = "172.17.57.28";
-    private string _gameName = "CritterCombat";
-    private string _lobbyName = "";
+    private string _serverName = "Server 1";
+    private string _roomName = "";
 
     private float _refreshRequestLength = 3.0f;
     private HostData[] _hostData;
 
     public Transform playerPrefab;
     public NetworkPlayer myPlayer;
+
+    public GameObject lobbyPanel;
+    public Transform lobbyBrowser;
 
 
     void Start() {
@@ -24,7 +28,7 @@ public class NetworkManager : MonoBehaviour {
 
     private void StartServer() {
         Network.InitializeServer(16, Random.Range(2000, 2500), !Network.HavePublicAddress());
-        MasterServer.RegisterHost(_gameName, _lobbyName);
+        MasterServer.RegisterHost(_serverName, _roomName);
     }
 
     void OnServerInitialized() {
@@ -66,30 +70,68 @@ public class NetworkManager : MonoBehaviour {
 
     }
 
-    public IEnumerator RefreshHostList() {
-        MasterServer.RequestHostList(_gameName);
-        float timeEnd = Time.time + _refreshRequestLength;
-        while (Time.time < timeEnd) {
-            _hostData = MasterServer.PollHostList();
-            yield return new WaitForEndOfFrame();
+    //public IEnumerator RefreshHostList() {
+    //    MasterServer.RequestHostList(_serverName);
+    //    float timeEnd = Time.time + _refreshRequestLength;
+    //    while (Time.time < timeEnd) {
+    //        _hostData = MasterServer.PollHostList();
+    //        yield return new WaitForEndOfFrame();
+    //    }
+    //}
+
+    public void RefreshBrowser() {
+        MasterServer.RequestHostList(_serverName);
+        _hostData = MasterServer.PollHostList();
+
+        // Loop through all rooms
+        if (_hostData.Length > 0) {
+            int hostDataLength = _hostData.Length;
+            for (int i = 0; i < hostDataLength; i++) {
+                CreateRoomPanel(i);
+            }
+        } else {
+            Debug.Log("No rooms found");
         }
+    }
+
+    private void CreateRoomPanel(int i) {
+        GameObject temp;
+        RoomInfo info;
+        RoomPanelUI panelUI;
+
+        temp = (GameObject)Instantiate(lobbyPanel);
+        temp.transform.SetParent(lobbyBrowser, false);
+
+        info = temp.gameObject.GetComponent<RoomInfo>();
+        info.roomNumber = i;
+        info.roomName = _hostData[i].gameName;
+        info.maxAmountOfPlayers = _hostData[i].playerLimit;
+        info.amountOfPlayers = _hostData[i].connectedPlayers;
+
+        panelUI = temp.gameObject.GetComponent<RoomPanelUI>();
+        panelUI.UpdatePanel();
+    }
+
+    public void ConnectToRoom(HostData room) {
+        Network.Connect(room);
     }
 
     public void OnGUI() {
         if (Network.isClient || Network.isServer) {
             return;
         }
-        if (_lobbyName == "") {
-            GUI.Label(new Rect(Screen.width / 2 - Screen.width / 10, Screen.height / 2 - Screen.height / 20, Screen.width / 5, Screen.height / 20), "Lobby Name");
+        if (_roomName == "") {
+            GUI.Label(new Rect(Screen.width / 2 - Screen.width / 10, Screen.height / 2 - Screen.height / 20, Screen.width / 5, Screen.height / 20), "Room Name");
         }
 
-        _lobbyName = GUI.TextField(new Rect(Screen.width / 2 - Screen.width / 10, Screen.height / 2 - Screen.height / 20, Screen.width / 5, Screen.height / 20), _lobbyName, 25);
+        _roomName = GUI.TextField(new Rect(Screen.width / 2 - Screen.width / 10, Screen.height / 2 - Screen.height / 20, Screen.width / 5, Screen.height / 20), _roomName, 25);
 
         if (GUI.Button(new Rect(Screen.width / 2 - Screen.width / 10, Screen.height / 2, Screen.width / 5, Screen.height / 10), "Start New Server")) {
             StartServer();
         }
         if (GUI.Button(new Rect(Screen.width / 2 - Screen.width / 10, Screen.height / 2 + Screen.height / 10, Screen.width / 5, Screen.height / 10), "Find Servers")) {
-            StartCoroutine(RefreshHostList());
+            //StartCoroutine(RefreshHostList());
+            RefreshBrowser();
         }
         if (_hostData != null) {
             for (int i = 0; i < _hostData.Length; i++) {
