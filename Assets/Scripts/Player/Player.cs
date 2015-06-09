@@ -15,6 +15,9 @@ public class Player : MonoBehaviour {
     private int midAttack;
     private int lowBlock;
     private int midBlock;
+    public AnimatorStateInfo currentBaseState;
+    private Rigidbody2D body;
+    private NetworkView _networkView;
     void FixedUpdate() {
         if (haveControl) {
             horiz = Input.GetAxis("Horizontal");
