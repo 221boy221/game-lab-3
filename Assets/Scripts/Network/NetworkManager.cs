@@ -14,6 +14,7 @@ public class NetworkManager : MonoBehaviour {
 
     public Transform playerPrefab;
     public NetworkPlayer myPlayer;
+    public Transform cameraPrefab;
 
     public GameObject lobbyPanel;
     public Transform lobbyBrowser;
@@ -46,6 +47,7 @@ public class NetworkManager : MonoBehaviour {
     [RPC]
     void makePlayer(NetworkPlayer thisPlayer) {
         Transform newPlayer = Network.Instantiate(playerPrefab, transform.position, transform.rotation, 0) as Transform;
+        Transform newCam = Instantiate(cameraPrefab, new Vector3(0,0,-10), transform.rotation) as Transform;
         if (thisPlayer != myPlayer) {
             GetComponent<NetworkView>().RPC("enableCamera", thisPlayer, newPlayer.GetComponent<NetworkView>().viewID);
         } else {
@@ -61,9 +63,9 @@ public class NetworkManager : MonoBehaviour {
         foreach (GameObject thisPlayer in players) {
             if (thisPlayer.GetComponent<NetworkView>().viewID == playerID) {
                 thisPlayer.GetComponent<Player>().haveControl = true;
-                Transform myCamera = thisPlayer.transform.Find("Camera");
+                /*Transform myCamera = thisPlayer.transform.Find("Camera");
                 myCamera.GetComponent<Camera>().enabled = true;
-                myCamera.GetComponent<Camera>().GetComponent<AudioListener>().enabled = true;
+                myCamera.GetComponent<Camera>().GetComponent<AudioListener>().enabled = true;*/
                 break;
             }
         }
