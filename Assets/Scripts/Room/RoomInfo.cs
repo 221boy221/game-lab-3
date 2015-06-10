@@ -9,6 +9,8 @@ public class RoomInfo : MonoBehaviour {
     private string _roomName = "";
     private int _amountOfPlayers = 0;
     private int _maxAmountOfPlayers = 0;
+    private string _guid = "";
+
 
 
     // GETTERS AND SETTERS
@@ -46,6 +48,15 @@ public class RoomInfo : MonoBehaviour {
         }
         set {
             _maxAmountOfPlayers = value;
+        }
+    }
+
+    public string guid {
+        get {
+            return _guid;
+        }
+        set {
+            _guid = value;
         }
     }
     
