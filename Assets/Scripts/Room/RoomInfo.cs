@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Boy Voesten
+
 public class RoomInfo : MonoBehaviour {
 
     private int _roomNumber = 0;
