@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
     private float speed;
     private Animator anim;
     public int health;
-    private Player enemy;
+    public Player enemy;
     private bool attacked;
     private int lowAttack;
     private int midAttack;
@@ -52,6 +52,7 @@ public class Player : MonoBehaviour {
                 }
             }
         }
+        transform.localScale = new Vector3(Mathf.Clamp(-transform.position.x - -enemy.transform.position.x,-0.6f,0.6f),transform.localScale.y,transform.localScale.z);
     }
     void Update()
     {
@@ -75,10 +76,9 @@ public class Player : MonoBehaviour {
         {
             anim.SetTrigger("AttackLow");
             attacked = true;
-            if (attacked == false && enemy != null)
+            if (attacked == false && inRange)
             {
-                enemy.damage(10, 0);
-                Debug.Log(enemy.health);
+
             }
             attacked = true;
         }
@@ -86,48 +86,47 @@ public class Player : MonoBehaviour {
         {
             anim.SetTrigger("AttackMid");
             Debug.Log(attacked + ":" + enemy);
-            if (attacked == false && enemy != null)
+            if (attacked == false && inRange)
             {
-                enemy.damage(10, 1);
-                Debug.Log(enemy.health);
+               
             }
             attacked = true;
         }
         currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
-
-
         if (currentBaseState.fullPathHash != lowAttack && currentBaseState.fullPathHash != midAttack)
         {
             attacked = false;
         }
     }
-    public void damage(int amount, int midLow)
+    public void receivingDamag(int midLow)
     {
-        if (midLow == 0 && currentBaseState.fullPathHash != lowBlock)
+        if(midLow == 0)
         {
-            health -= amount;
+            
         }
-        else if (midLow == 1 && currentBaseState.fullPathHash != midBlock)
+        else if(midLow == 1)
         {
-            health -= amount;
+
         }
-        Debug.Log(health);
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        enemy = other.GetComponent<Player>();
+        if(other.tag == "Player")
+        {
+            inRange = true;
+        }
     }
-    void OnTriggerExit2D()
+    void OnTriggerExit2D(Collider2D other)
     {
-        enemy = null;
+        if (other.tag == "Player")
+        {
+            inRange = false;
+        }
     }
-    [RPC]
     void movePlayer(Vector3 playerVelocity) {
         body.velocity = playerVelocity;
         GetComponent<NetworkView>().RPC("updatePlayer", RPCMode.OthersBuffered, transform.position);
     }
-
-    [RPC]
     void updatePlayer(Vector3 playerPos) {
         transform.position = playerPos;
     }

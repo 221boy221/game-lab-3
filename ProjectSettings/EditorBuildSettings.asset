@@ -7,7 +7,5 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/_Scenes/Boy/Test01.unity
-  - enabled: 0
-    path: Assets/_Scenes/Beau/TEST.unity
   - enabled: 1
-    path: Assets/_Scenes/Boy/Lobby.unity
+    path: Assets/_Scenes/Beau/TEST.unity
