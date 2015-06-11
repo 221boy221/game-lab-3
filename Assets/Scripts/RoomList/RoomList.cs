@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -12,6 +13,12 @@ public class RoomList : MonoBehaviour {
     private Dictionary<int, GameObject> _roomList = new Dictionary<int,GameObject>();
     public GameObject roomPanelPref;
     public Transform roomBrowser;
+    private Text _refreshTxt;
+
+
+    void Start() {
+        _refreshTxt = GetComponentInChildren<Text>();
+    }
 
     // For the UI to access
     public void RefreshList() {
@@ -19,8 +26,21 @@ public class RoomList : MonoBehaviour {
         MasterServer.RequestHostList(ServerInfo.serverName);
 
         StartCoroutine(RefreshHostData());
-        
-        // Loop through all rooms
+    }
+
+    // Refreshes the hostData
+    private IEnumerator RefreshHostData() {
+        // Make it so it refreshes for a few seconds
+        float timeEnd = Time.time + _refreshRequestLength;
+        _refreshTxt.text = "Refreshing...";
+        while (Time.time < timeEnd) {
+            _hostData = MasterServer.PollHostList();
+            yield return new WaitForEndOfFrame();
+        }
+        _refreshTxt.text = "Refresh";
+        Debug.Log("hostData length (amount of rooms): " + _hostData.Length);
+
+        // Check if room needs a panel or not
         if (_hostData.Length > 0) {
             int hostDataLength = _hostData.Length;
             for (int i = 0; i < hostDataLength; i++) {
@@ -33,23 +53,13 @@ public class RoomList : MonoBehaviour {
             }
             CheckForRemove();
         } else {
-            Debug.Log("No rooms found - clearing _roomList...");
+            Debug.Log("No rooms found - clearing roomList...");
 
-            foreach (KeyValuePair<int, GameObject> entry in _roomList){
+            foreach (KeyValuePair<int, GameObject> entry in _roomList) {
                 Destroy(_roomList[entry.Key].gameObject);
             }
             _roomList.Clear();
-
             CheckForRemove();
-        }
-    }
-
-    // Refreshes the hostData
-    private IEnumerator RefreshHostData() {
-        float timeEnd = Time.time + _refreshRequestLength;
-        while (Time.time < timeEnd) {
-            _hostData = MasterServer.PollHostList();
-            yield return new WaitForEndOfFrame();
         }
     }
 
@@ -70,7 +80,7 @@ public class RoomList : MonoBehaviour {
         info.guid               = _hostData[i].guid;
 
         panelUI = panelPref.gameObject.GetComponent<RoomPanelUI>();
-        panelUI.UpdatePanel();
+        //panelUI.UpdatePanel();
 
         _roomList.Add(i, panelPref);
     }

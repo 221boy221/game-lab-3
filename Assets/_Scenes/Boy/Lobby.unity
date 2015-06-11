@@ -248,6 +248,14 @@ Prefab:
       propertyPath: m_TagString
       value: RoomList
       objectReference: {fileID: 0}
+    - target: {fileID: 22444052, guid: 89838ff6743aa87459549580f7fd3078, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22496094, guid: 89838ff6743aa87459549580f7fd3078, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89838ff6743aa87459549580f7fd3078, type: 2}
   m_IsPrefabParent: 0
@@ -266,7 +274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &128894098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1862,11 +1870,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2023290497}
---- !u!1 &2115018971
+--- !u!1 &2115018971 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 164284, guid: 89838ff6743aa87459549580f7fd3078, type: 2}
   m_PrefabInternal: {fileID: 109444928}
---- !u!224 &2115018972
+--- !u!224 &2115018972 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22441718, guid: 89838ff6743aa87459549580f7fd3078,
     type: 2}
