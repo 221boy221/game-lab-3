@@ -11,7 +11,6 @@ public class NetworkManager : MonoBehaviour {
     //private float _refreshRequestLength = 3.0f;
     public Transform playerPrefab;
     public NetworkPlayer myPlayer;
-    public Transform cameraPrefab;
 
     void Start()
     {
@@ -36,7 +35,6 @@ public class NetworkManager : MonoBehaviour {
     [RPC]
     void makePlayer(NetworkPlayer thisPlayer) {
         Transform newPlayer = Network.Instantiate(playerPrefab, transform.position, transform.rotation, 0) as Transform;
-        Transform newCam = Instantiate(cameraPrefab, new Vector3(0,0,-10), transform.rotation) as Transform;
         if (thisPlayer != myPlayer) {
             GetComponent<NetworkView>().RPC("enableCamera", thisPlayer, newPlayer.GetComponent<NetworkView>().viewID);
         } else {
