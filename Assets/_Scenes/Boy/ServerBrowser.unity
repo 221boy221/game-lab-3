@@ -87,7 +87,7 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &208999492
+--- !u!1001 &13199023
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -172,51 +172,59 @@ Prefab:
       objectReference: {fileID: 1615724440}
     - target: {fileID: 22458986, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22458986, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22458986, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 302.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22458986, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -35
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22458986, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 585
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22458986, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22457362, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22457362, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22457362, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 302.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22457362, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -87
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22457362, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 585
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22457362, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496368, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
+      propertyPath: m_Text
+      value: Unknown
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449514, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
+      propertyPath: m_Text
+      value: Unknown
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
@@ -321,6 +329,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &674310211
 MonoBehaviour:
@@ -522,6 +531,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &1766104083
 Transform:
   m_ObjectHideFlags: 0
@@ -538,4 +548,4 @@ Transform:
 RectTransform:
   m_PrefabParentObject: {fileID: 22480668, guid: 6a69a9700c886474c8c783aecc4dd2a4,
     type: 2}
-  m_PrefabInternal: {fileID: 208999492}
+  m_PrefabInternal: {fileID: 13199023}

@@ -108,8 +108,8 @@ public class RoomList : MonoBehaviour {
                 }
             }
         }
-        
-        for (int i = 0; i < temp2.Count -1; i++) {
+
+        for (int i = 0; i < temp2.Count - 1; i++) {
             Debug.Log("Removing non-existing rooms");
             Destroy(_roomList[temp2[i]].gameObject);
             _roomList.Remove(temp2[i]);
@@ -120,31 +120,6 @@ public class RoomList : MonoBehaviour {
             _roomList[entry.Key].GetComponent<RoomInfo>().amountOfPlayers = _hostData[entry.Key].connectedPlayers;
             _roomList[entry.Key].GetComponent<RoomPanelUI>().UpdatePanel();
         }
-
-        
-        /*_roomList.Remove(entry.Key);
-        for (int i = 0; i < temp.Count - 1; i++) {
-            if (!_roomList.ContainsKey(i)) {
-
-            }
-        }
-        */
-        /*
-        foreach (KeyValuePair<int, GameObject> entry in _roomList) {
-
-            Debug.Log("HostData Length: " + _hostData.Length);
-            Debug.Log("Entry Key: " + entry.Key);
-
-            if (_hostData[entry.Key] == null) {
-                Debug.Log("Room #" + entry.Key + " is Null");
-                //_roomList.Remove(entry.Key);
-            } else {
-                Debug.Log("Updating room #" + entry.Key);
-                _roomList[entry.Key].GetComponent<RoomInfo>().amountOfPlayers = _hostData[entry.Key].connectedPlayers;
-                _roomList[entry.Key].GetComponent<RoomPanelUI>().UpdatePanel();
-            }
-        }
-        */
     }
 
     public void Join(int i) {

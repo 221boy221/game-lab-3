@@ -6,8 +6,8 @@ using System.Collections;
 
 public class ServerInfo : MonoBehaviour {
 
-    public static string serverIP = /*"192.168.178.23";*/ /*"82.217.232.246";*/ "172.17.57.28";
-    public static string serverName = "Server 0";
+    public static string serverIP = "";     ///*"192.168.178.23";*/ /*"82.217.232.246";*/ "172.17.57.28";
+    public static string serverName = "";
 
     //public static HostData[] hostData;
 
