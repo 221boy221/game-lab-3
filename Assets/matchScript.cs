@@ -80,13 +80,15 @@ public class matchScript : MonoBehaviour {
         if (Network.isServer)
         {
             playerOne.GetComponent<Player>().haveControl = true;
-            playerOne.GetComponent<Player>().enemy = playerTwo.GetComponent<Player>();
+            playerOne.GetComponent<Player>().enemy = playerOne.GetComponent<Player>();
         }
         else 
         {
             playerTwo.GetComponent<Player>().haveControl = true;
-            playerTwo.GetComponent<Player>().enemy = playerOne.GetComponent<Player>();
+            playerTwo.GetComponent<Player>().enemy = playerTwo.GetComponent<Player>();
         }
+        playerOne.GetComponent<Player>().enemy = playerTwo.GetComponent<Player>();
+        playerTwo.GetComponent<Player>().enemy = playerOne.GetComponent<Player>();
     }
     [RPC]
     public void UpdateHealthBar()
