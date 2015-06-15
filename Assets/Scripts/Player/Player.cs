@@ -19,6 +19,8 @@ public class Player : MonoBehaviour {
     private Rigidbody2D body;
     private NetworkView _networkView;
     private bool inRange;
+    public matchScript match;
+    
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -53,62 +55,70 @@ public class Player : MonoBehaviour {
                 }
             }
         }
-        transform.localScale = new Vector3(Mathf.Clamp(-transform.position.x - -enemy.transform.position.x,-0.6f,0.6f),transform.localScale.y,transform.localScale.z);
+        transform.localScale = new Vector3(Mathf.Clamp(-transform.position.x - -enemy.transform.position.x,-0.4f,0.4f),transform.localScale.y,transform.localScale.z);
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (haveControl)
         {
-            anim.SetBool("BlockMid", true);
-        }
-        else if (Input.GetKeyDown(KeyCode.Q))
-        {
-            anim.SetBool("BlockLow", true);
-        }
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            anim.SetBool("BlockLow", false);
-        }
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            anim.SetBool("BlockMid", false);
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
-            anim.SetTrigger("AttackLow");
-            attacked = true;
-            if (attacked == false && inRange)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-
+                anim.SetBool("BlockMid", true);
             }
-            attacked = true;
-        }
-        else if (Input.GetMouseButtonDown(1))
-        {
-            anim.SetTrigger("AttackMid");
-            Debug.Log(attacked + ":" + enemy);
-            if (attacked == false && inRange)
+            else if (Input.GetKeyDown(KeyCode.Q))
             {
-               
+                anim.SetBool("BlockLow", true);
             }
-            attacked = true;
+            if (Input.GetKeyUp(KeyCode.Q))
+            {
+                anim.SetBool("BlockLow", false);
+            }
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                anim.SetBool("BlockMid", false);
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                anim.SetTrigger("AttackLow");
+                if (attacked == false && inRange)
+                {
+                    DoDamag(0);
+                }
+                attacked = true;
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                anim.SetTrigger("AttackMid");
+                if (attacked == false && inRange)
+                {
+                    DoDamag(1);
+                }
+                attacked = true;
+            }
+            currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
+            if (currentBaseState.fullPathHash != lowAttack && currentBaseState.fullPathHash != midAttack)
+            {
+                attacked = false;
+            }
         }
-        currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
-        if (currentBaseState.fullPathHash != lowAttack && currentBaseState.fullPathHash != midAttack)
-        {
-            attacked = false;
-        }
+    }
+    [RPC]
+    private void DoDamag(int midLow)
+    {
+        enemy.receivingDamag(midLow);
     }
     public void receivingDamag(int midLow)
     {
-        if(midLow == 0)
+        if(midLow == 0 && currentBaseState.fullPathHash != lowBlock)
         {
-            
+            health -= 10;
         }
-        else if(midLow == 1)
+        else if(midLow == 1 && currentBaseState.fullPathHash != midAttack)
         {
-
+            health -= 20;
         }
+        match.UpdateHealthBar();
+        Debug.Log(health + ":" + enemy.health);
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -124,11 +134,15 @@ public class Player : MonoBehaviour {
             inRange = false;
         }
     }
-    void movePlayer(Vector3 playerVelocity) {
+    [RPC]
+    void movePlayer(Vector3 playerVelocity) 
+    {
         body.velocity = playerVelocity;
-       // GetComponent<NetworkView>().RPC("updatePlayer", RPCMode.OthersBuffered, transform.position);
+        GetComponent<NetworkView>().RPC("updatePlayer", RPCMode.OthersBuffered, transform.position);
     }
-    void updatePlayer(Vector3 playerPos) {
+    [RPC]
+    void updatePlayer(Vector3 playerPos) 
+    {
         transform.position = playerPos;
     }
 }
