@@ -13,7 +13,8 @@ public class NetworkManager : MonoBehaviour {
     public NetworkPlayer myPlayer;
     public Transform cameraPrefab;
 
-    void Start() {
+    void Start()
+    {
         MasterServer.ipAddress = ServerInfo.serverIP;
         MasterServer.port = 23466;
         Network.natFacilitatorIP = ServerInfo.serverIP;
@@ -50,7 +51,8 @@ public class NetworkManager : MonoBehaviour {
 
         foreach (GameObject thisPlayer in players) {
             if (thisPlayer.GetComponent<NetworkView>().viewID == playerID) {
-                thisPlayer.GetComponent<Player>().haveControl = true;
+               
+
                 /*Transform myCamera = thisPlayer.transform.Find("Camera");
                 myCamera.GetComponent<Camera>().enabled = true;
                 myCamera.GetComponent<Camera>().GetComponent<AudioListener>().enabled = true;*/
