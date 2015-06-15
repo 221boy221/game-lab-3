@@ -16,7 +16,7 @@ public class matchScript : MonoBehaviour {
     GameObject[] players;
 	void Start () 
     {
-        countdown = false;
+        countdown = true;
         timeLeft = 3;
         MasterServer.ipAddress = ServerInfo.serverIP;
         MasterServer.port = 23466;
@@ -72,10 +72,6 @@ public class matchScript : MonoBehaviour {
         }
         
         
-        if(players.Length == 2)
-        {
-            countdown = true;
-        }
     }
     void StartGame()
     {
