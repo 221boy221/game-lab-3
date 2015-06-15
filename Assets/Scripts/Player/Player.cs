@@ -44,6 +44,7 @@ public class Player : MonoBehaviour {
 
             if (myVelocity != body.velocity)
             {
+                movePlayer(myVelocity);
                 if (Network.isServer) 
                 {
                     movePlayer(myVelocity);
@@ -125,7 +126,7 @@ public class Player : MonoBehaviour {
     }
     void movePlayer(Vector3 playerVelocity) {
         body.velocity = playerVelocity;
-        GetComponent<NetworkView>().RPC("updatePlayer", RPCMode.OthersBuffered, transform.position);
+       // GetComponent<NetworkView>().RPC("updatePlayer", RPCMode.OthersBuffered, transform.position);
     }
     void updatePlayer(Vector3 playerPos) {
         transform.position = playerPos;
