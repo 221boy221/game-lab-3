@@ -18,10 +18,6 @@ public class matchScript : MonoBehaviour {
     {
         countdown = true;
         timeLeft = 3;
-        MasterServer.ipAddress = ServerInfo.serverIP;
-        MasterServer.port = 23466;
-        Network.natFacilitatorIP = ServerInfo.serverIP;
-        Network.proxyPort = 50005;
         if (Network.isServer)
         {
             myPlayer = Network.player;
