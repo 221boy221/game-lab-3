@@ -22,21 +22,18 @@ public class matchScript : MonoBehaviour {
         MasterServer.port = 23466;
         Network.natFacilitatorIP = ServerInfo.serverIP;
         Network.proxyPort = 50005;
-	}
-    void OnServerInitialized()
-    {
         if (Network.isServer)
         {
             myPlayer = Network.player;
             makePlayer(myPlayer);
         }
-    }
-
-    void OnConnectedToServer()
-    {
-        myPlayer = Network.player;
-        GetComponent<NetworkView>().RPC("makePlayer", RPCMode.Server, myPlayer);
-    }
+        else
+        {
+            myPlayer = Network.player;
+            GetComponent<NetworkView>().RPC("makePlayer", RPCMode.Server, myPlayer);
+        }
+        
+	}
 	void Update () 
     {
 	    if(countdown)
