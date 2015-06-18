@@ -8,12 +8,9 @@ public class matchScript : MonoBehaviour {
     public Slider playerOneHealth;
     public Slider playerTwoHealth;
     public Text countdowntText;
-    public Transform playerOne;
-    public Transform playerTwo;
     private float timeLeft;
     public Transform playerPrefab;
     public NetworkPlayer myPlayer;
-    GameObject[] players;
 	void Start () 
     {
         countdown = true;
@@ -74,9 +71,15 @@ public class matchScript : MonoBehaviour {
        //playerTwo.GetComponent<Player>().enemy = playerOne.GetComponent<Player>();
     }
     [RPC]
-    public void UpdateHealthBar()
+    public void UpdateHealthBar(int health)
     {
-        playerOneHealth.value = playerOne.GetComponent<Player>().health;
-        playerTwoHealth.value = playerTwo.GetComponent<Player>().health;
+        if (Network.isServer)
+        {
+            playerOneHealth.value = health;
+        }
+        else
+        {
+            playerTwoHealth.value = health;
+        }
     }
 }

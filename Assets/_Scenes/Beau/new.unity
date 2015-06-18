@@ -421,15 +421,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 725361226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d73e030f9822534aa5703b1d001b704, type: 3}
+  m_Script: {fileID: 11500000, guid: 64f548c5b4be0994998eea8f95b3558d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerOneHealth: {fileID: 1701291909}
   playerTwoHealth: {fileID: 26008234}
   countdowntText: {fileID: 1018872526}
-  playerOne: {fileID: 0}
-  playerTwo: {fileID: 0}
-  playerPrefab: {fileID: 466978, guid: 25e44ee233daa8f4cbdec83a18d6c9ff, type: 2}
+  playerPrefab: {fileID: 403758, guid: 4d360df09ef14274aa36acf3f2f27996, type: 2}
 --- !u!148 &725361233
 NetworkView:
   m_ObjectHideFlags: 0
