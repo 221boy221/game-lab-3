@@ -17,17 +17,9 @@ public class matchScript : MonoBehaviour {
 	void Start () 
     {
         countdown = true;
-        timeLeft = 3;
-        if (Network.isServer)
-        {
-            myPlayer = Network.player;
-            makePlayer(myPlayer);
-        }
-        else
-        {
-            myPlayer = Network.player;
-            GetComponent<NetworkView>().RPC("makePlayer", RPCMode.Server, myPlayer);
-        }
+        timeLeft = 30;
+        myPlayer = Network.player;
+        makePlayer(myPlayer);
         
 	}
 	void Update () 
@@ -52,36 +44,34 @@ public class matchScript : MonoBehaviour {
     [RPC]
     void makePlayer(NetworkPlayer thisPlayer)
     {
+        Vector3 startPos;
+        Vector3 scale;
+        Transform player;
         if (Network.isServer)
         {
-            Vector3 startPos = new Vector3(-7, -3, 0);
-            playerOne = Network.Instantiate(playerPrefab, startPos, transform.rotation, 0) as Transform;
+            startPos = new Vector3(-7, -3, 0);
+            scale = new Vector3(.4f, .4f, 1);
         }
         else
         {
-            Vector3 startPos = new Vector3(7, -3, 0);
-            playerTwo = Network.Instantiate(playerPrefab, startPos, transform.rotation, 0) as Transform;
-            playerTwo.localScale = new Vector3(-playerTwo.localScale.x, playerTwo.localScale.y, playerTwo.localScale.z);
+            startPos = new Vector3(7, -3, 0);
+            scale = new Vector3(-.4f, .4f, 1);
         }
-        
-        
+
+        player = Network.Instantiate(playerPrefab, startPos, transform.rotation, 0) as Transform;
+        player.localScale = scale;
+        Debug.Log(player.GetComponent<NetworkView>());
+        player.GetComponent<Player>().haveControl = true;
+
     }
+    [RPC]
     void StartGame()
     {
         countdowntText.gameObject.SetActive(false);
         countdown = false;
-        if (Network.isServer)
-        {
-            playerOne.GetComponent<Player>().haveControl = true;
-            playerOne.GetComponent<Player>().enemy = playerOne.GetComponent<Player>();
-        }
-        else 
-        {
-            playerTwo.GetComponent<Player>().haveControl = true;
-            playerTwo.GetComponent<Player>().enemy = playerTwo.GetComponent<Player>();
-        }
-        playerOne.GetComponent<Player>().enemy = playerTwo.GetComponent<Player>();
-        playerTwo.GetComponent<Player>().enemy = playerOne.GetComponent<Player>();
+
+        //playerOne.GetComponent<Player>().enemy = playerTwo.GetComponent<Player>();
+       //playerTwo.GetComponent<Player>().enemy = playerOne.GetComponent<Player>();
     }
     [RPC]
     public void UpdateHealthBar()
