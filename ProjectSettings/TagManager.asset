@@ -8,6 +8,7 @@ TagManager:
   - ServerList
   - UserData
   - WaitingRoom
+  - SceneSwitcher
   layers:
   - Default
   - TransparentFX

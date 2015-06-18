@@ -15,11 +15,17 @@ public class WaitingRoom : MonoBehaviour {
     private Dictionary<string, string> _allUserInfo = new Dictionary<string, string>();
     private Dictionary<string, GameObject> _allUserPanels = new Dictionary<string, GameObject>();
     */
+    private loader _loader;
+
+    void Awake() {
+        _loader = GameObject.FindGameObjectWithTag("SceneSwitcher").GetComponent<loader>();
+    }
 
     public void OnJoin(HostData roomData) {
         /// For now:
         if (roomData.connectedPlayers < roomData.playerLimit) {
             // load lvl
+            _loader.load();
         }
         
         //StartCoroutine(Join(1f));

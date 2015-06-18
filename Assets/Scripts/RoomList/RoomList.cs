@@ -127,8 +127,6 @@ public class RoomList : MonoBehaviour {
     public void Join(int i) {
         Debug.Log("Connecting to host...");
         Network.Connect(_hostData[i]);
-        // TODO: Replace with room's map
-        //Application.LoadLevel("new");
 
         _waitingRoom.SetActive(true);
         _waitingRoom.GetComponent<WaitingRoom>().OnJoin(_hostData[i]);
