@@ -1,9 +1,20 @@
 fileFormatVersion: 2
 guid: de15426d917abfd419c5519e35dd2bff
-timeCreated: 1434635891
+timeCreated: 1434647071
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: SQUIRREL_ATTACK_0
+    21300002: SQUIRREL_ATTACK_1
+    21300004: SQUIRREL_ATTACK_2
+    21300006: SQUIRREL_ATTACK_3
+    21300008: SQUIRREL_ATTACK_4
+    21300010: SQUIRREL_ATTACK_5
+    21300012: SQUIRREL_ATTACK_6
+    21300014: SQUIRREL_ATTACK_7
+    21300016: SQUIRREL_ATTACK_8
+    21300018: SQUIRREL_ATTACK_9
+    21300020: SQUIRREL_ATTACK_10
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,14 +41,14 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +59,117 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: SQUIRREL_ATTACK_0
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 69
+        width: 501
+        height: 402
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_ATTACK_1
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 69
+        width: 504
+        height: 359
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_ATTACK_2
+      rect:
+        serializedVersion: 2
+        x: 1660
+        y: 69
+        width: 501
+        height: 335
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_ATTACK_3
+      rect:
+        serializedVersion: 2
+        x: 2399
+        y: 69
+        width: 497
+        height: 335
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_ATTACK_4
+      rect:
+        serializedVersion: 2
+        x: 3129
+        y: 69
+        width: 501
+        height: 325
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_ATTACK_5
+      rect:
+        serializedVersion: 2
+        x: 3883
+        y: 69
+        width: 494
+        height: 331
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_ATTACK_6
+      rect:
+        serializedVersion: 2
+        x: 4617
+        y: 69
+        width: 514
+        height: 331
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_ATTACK_7
+      rect:
+        serializedVersion: 2
+        x: 5368
+        y: 69
+        width: 485
+        height: 339
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_ATTACK_8
+      rect:
+        serializedVersion: 2
+        x: 6110
+        y: 69
+        width: 462
+        height: 347
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_ATTACK_9
+      rect:
+        serializedVersion: 2
+        x: 6821
+        y: 69
+        width: 485
+        height: 379
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_ATTACK_10
+      rect:
+        serializedVersion: 2
+        x: 7539
+        y: 69
+        width: 502
+        height: 402
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

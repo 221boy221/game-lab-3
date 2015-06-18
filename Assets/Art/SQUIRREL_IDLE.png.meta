@@ -1,9 +1,79 @@
 fileFormatVersion: 2
 guid: 98d8344df737e3147b71b5eefcaf1eac
-timeCreated: 1434453841
+timeCreated: 1434646623
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: SQUIRREL_IDLE_0
+    21300002: SQUIRREL_IDLE_1
+    21300004: SQUIRREL_IDLE_2
+    21300006: SQUIRREL_IDLE_3
+    21300008: SQUIRREL_IDLE_4
+    21300010: SQUIRREL_IDLE_5
+    21300012: SQUIRREL_IDLE_6
+    21300014: SQUIRREL_IDLE_7
+    21300016: SQUIRREL_IDLE_8
+    21300018: SQUIRREL_IDLE_9
+    21300020: SQUIRREL_IDLE_10
+    21300022: SQUIRREL_IDLE_11
+    21300024: SQUIRREL_IDLE_12
+    21300026: SQUIRREL_IDLE_13
+    21300028: SQUIRREL_IDLE_14
+    21300030: SQUIRREL_IDLE_15
+    21300032: SQUIRREL_IDLE_16
+    21300034: SQUIRREL_IDLE_17
+    21300036: SQUIRREL_IDLE_18
+    21300038: SQUIRREL_IDLE_19
+    21300040: SQUIRREL_IDLE_20
+    21300042: SQUIRREL_IDLE_21
+    21300044: SQUIRREL_IDLE_22
+    21300046: SQUIRREL_IDLE_23
+    21300048: SQUIRREL_IDLE_24
+    21300050: SQUIRREL_IDLE_25
+    21300052: SQUIRREL_IDLE_26
+    21300054: SQUIRREL_IDLE_27
+    21300056: SQUIRREL_IDLE_28
+    21300058: SQUIRREL_IDLE_29
+    21300060: SQUIRREL_IDLE_30
+    21300062: SQUIRREL_IDLE_31
+    21300064: SQUIRREL_IDLE_32
+    21300066: SQUIRREL_IDLE_33
+    21300068: SQUIRREL_IDLE_34
+    21300070: SQUIRREL_IDLE_35
+    21300072: SQUIRREL_IDLE_36
+    21300074: SQUIRREL_IDLE_37
+    21300076: SQUIRREL_IDLE_38
+    21300078: SQUIRREL_IDLE_39
+    21300080: SQUIRREL_IDLE_40
+    21300082: SQUIRREL_IDLE_41
+    21300084: SQUIRREL_IDLE_42
+    21300086: SQUIRREL_IDLE_43
+    21300088: SQUIRREL_IDLE_44
+    21300090: SQUIRREL_IDLE_45
+    21300092: SQUIRREL_IDLE_46
+    21300094: SQUIRREL_IDLE_47
+    21300096: SQUIRREL_IDLE_48
+    21300098: SQUIRREL_IDLE_49
+    21300100: SQUIRREL_IDLE_50
+    21300102: SQUIRREL_IDLE_51
+    21300104: SQUIRREL_IDLE_52
+    21300106: SQUIRREL_IDLE_53
+    21300108: SQUIRREL_IDLE_54
+    21300110: SQUIRREL_IDLE_55
+    21300112: SQUIRREL_IDLE_56
+    21300114: SQUIRREL_IDLE_57
+    21300116: SQUIRREL_IDLE_58
+    21300118: SQUIRREL_IDLE_59
+    21300120: SQUIRREL_IDLE_60
+    21300122: SQUIRREL_IDLE_61
+    21300124: SQUIRREL_IDLE_62
+    21300126: SQUIRREL_IDLE_63
+    21300128: SQUIRREL_IDLE_64
+    21300130: SQUIRREL_IDLE_65
+    21300132: SQUIRREL_IDLE_66
+    21300134: SQUIRREL_IDLE_67
+    21300136: SQUIRREL_IDLE_68
+    21300138: SQUIRREL_IDLE_69
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,14 +100,14 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +118,707 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: SQUIRREL_IDLE_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1610
+        width: 503
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_1
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 1610
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_2
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 1610
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_3
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 1610
+        width: 502
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_4
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 1610
+        width: 503
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_5
+      rect:
+        serializedVersion: 2
+        x: 2585
+        y: 1610
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_6
+      rect:
+        serializedVersion: 2
+        x: 3098
+        y: 1610
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_7
+      rect:
+        serializedVersion: 2
+        x: 3611
+        y: 1610
+        width: 502
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_8
+      rect:
+        serializedVersion: 2
+        x: 4127
+        y: 1610
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_9
+      rect:
+        serializedVersion: 2
+        x: 4640
+        y: 1610
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_10
+      rect:
+        serializedVersion: 2
+        x: 5154
+        y: 1610
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_11
+      rect:
+        serializedVersion: 2
+        x: 5667
+        y: 1610
+        width: 502
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_12
+      rect:
+        serializedVersion: 2
+        x: 6183
+        y: 1610
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_13
+      rect:
+        serializedVersion: 2
+        x: 6696
+        y: 1610
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_14
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1206
+        width: 503
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_15
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 1206
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_16
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 1206
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_17
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 1206
+        width: 502
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_18
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 1206
+        width: 503
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_19
+      rect:
+        serializedVersion: 2
+        x: 2585
+        y: 1206
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_20
+      rect:
+        serializedVersion: 2
+        x: 3098
+        y: 1206
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_21
+      rect:
+        serializedVersion: 2
+        x: 3611
+        y: 1206
+        width: 502
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_22
+      rect:
+        serializedVersion: 2
+        x: 4127
+        y: 1206
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_23
+      rect:
+        serializedVersion: 2
+        x: 4647
+        y: 1206
+        width: 492
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_24
+      rect:
+        serializedVersion: 2
+        x: 5168
+        y: 1206
+        width: 485
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_25
+      rect:
+        serializedVersion: 2
+        x: 5691
+        y: 1206
+        width: 478
+        height: 397
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_26
+      rect:
+        serializedVersion: 2
+        x: 6218
+        y: 1206
+        width: 464
+        height: 397
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_27
+      rect:
+        serializedVersion: 2
+        x: 6735
+        y: 1206
+        width: 460
+        height: 387
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_28
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 806
+        width: 478
+        height: 351
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_29
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 806
+        width: 460
+        height: 383
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_30
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 806
+        width: 464
+        height: 393
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_31
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 806
+        width: 478
+        height: 393
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_32
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 806
+        width: 492
+        height: 397
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_33
+      rect:
+        serializedVersion: 2
+        x: 2585
+        y: 806
+        width: 499
+        height: 400
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_34
+      rect:
+        serializedVersion: 2
+        x: 3098
+        y: 806
+        width: 499
+        height: 400
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_35
+      rect:
+        serializedVersion: 2
+        x: 3611
+        y: 806
+        width: 499
+        height: 400
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_36
+      rect:
+        serializedVersion: 2
+        x: 4127
+        y: 806
+        width: 499
+        height: 400
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_37
+      rect:
+        serializedVersion: 2
+        x: 4640
+        y: 806
+        width: 499
+        height: 400
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_38
+      rect:
+        serializedVersion: 2
+        x: 5154
+        y: 806
+        width: 499
+        height: 400
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_39
+      rect:
+        serializedVersion: 2
+        x: 5667
+        y: 806
+        width: 499
+        height: 400
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_40
+      rect:
+        serializedVersion: 2
+        x: 6183
+        y: 806
+        width: 499
+        height: 400
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_41
+      rect:
+        serializedVersion: 2
+        x: 6696
+        y: 806
+        width: 499
+        height: 400
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_42
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 402
+        width: 503
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_43
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 402
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_44
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 402
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_45
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 402
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_46
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 402
+        width: 503
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_47
+      rect:
+        serializedVersion: 2
+        x: 2585
+        y: 402
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_48
+      rect:
+        serializedVersion: 2
+        x: 3098
+        y: 402
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_49
+      rect:
+        serializedVersion: 2
+        x: 3611
+        y: 402
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_50
+      rect:
+        serializedVersion: 2
+        x: 4127
+        y: 402
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_51
+      rect:
+        serializedVersion: 2
+        x: 4640
+        y: 402
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_52
+      rect:
+        serializedVersion: 2
+        x: 5154
+        y: 402
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_53
+      rect:
+        serializedVersion: 2
+        x: 5667
+        y: 402
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_54
+      rect:
+        serializedVersion: 2
+        x: 6183
+        y: 402
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_55
+      rect:
+        serializedVersion: 2
+        x: 6696
+        y: 402
+        width: 499
+        height: 401
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_56
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 0
+        width: 503
+        height: 399
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_57
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 0
+        width: 499
+        height: 399
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_58
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 0
+        width: 499
+        height: 399
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_59
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 0
+        width: 503
+        height: 399
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_60
+      rect:
+        serializedVersion: 2
+        x: 2068
+        y: 0
+        width: 503
+        height: 399
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_61
+      rect:
+        serializedVersion: 2
+        x: 2585
+        y: 0
+        width: 499
+        height: 399
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_62
+      rect:
+        serializedVersion: 2
+        x: 3098
+        y: 0
+        width: 499
+        height: 399
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_63
+      rect:
+        serializedVersion: 2
+        x: 3611
+        y: 0
+        width: 502
+        height: 399
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_64
+      rect:
+        serializedVersion: 2
+        x: 4127
+        y: 0
+        width: 499
+        height: 399
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_65
+      rect:
+        serializedVersion: 2
+        x: 4640
+        y: 0
+        width: 499
+        height: 399
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_66
+      rect:
+        serializedVersion: 2
+        x: 5154
+        y: 0
+        width: 499
+        height: 399
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_67
+      rect:
+        serializedVersion: 2
+        x: 5667
+        y: 0
+        width: 502
+        height: 399
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_68
+      rect:
+        serializedVersion: 2
+        x: 6183
+        y: 0
+        width: 499
+        height: 399
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SQUIRREL_IDLE_69
+      rect:
+        serializedVersion: 2
+        x: 6696
+        y: 0
+        width: 499
+        height: 399
+      alignment: 8
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

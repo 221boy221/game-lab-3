@@ -34,6 +34,7 @@ public class Player : MonoBehaviour {
         body = GetComponent<Rigidbody2D>();
         _networkView = GetComponent<NetworkView>();
         enemy = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        match = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<matchScript>();
 
     }
     void FixedUpdate()
@@ -47,16 +48,12 @@ public class Player : MonoBehaviour {
 
             if (myVelocity != body.velocity)
             {
-                movePlayer(myVelocity);
-                if (Network.isServer)
-                {
                     movePlayer(myVelocity);
-                }
-                else
-                {
-                    movePlayer(myVelocity);
-                    //GetComponent<NetworkView>().RPC("movePlayer", RPCMode.Server, (Vector3)myVelocity);
-                }
+                    anim.SetBool("Running", true);
+            }
+            else
+            {
+                anim.SetBool("Running", false);
             }
         }
     }
@@ -64,22 +61,6 @@ public class Player : MonoBehaviour {
     {
         if (haveControl)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                anim.SetBool("BlockMid", true);
-            }
-            else if (Input.GetKeyDown(KeyCode.Q))
-            {
-                anim.SetBool("BlockLow", true);
-            }
-            if (Input.GetKeyUp(KeyCode.Q))
-            {
-                anim.SetBool("BlockLow", false);
-            }
-            if (Input.GetKeyUp(KeyCode.E))
-            {
-                anim.SetBool("BlockMid", false);
-            }
             if (Input.GetMouseButtonDown(0))
             {
                 anim.SetTrigger("AttackLow");
@@ -120,7 +101,7 @@ public class Player : MonoBehaviour {
         {
             health -= 20;
         }
-        match.UpdateHealthBar();
+        match.UpdateHealthBar(health);
         //Debug.Log(health + ":" + enemy.health);
     }
     void OnTriggerEnter2D(Collider2D other)
