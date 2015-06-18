@@ -7,20 +7,19 @@ using System.Collections;
 
 public class ServerList : MonoBehaviour {
 
+    /*
     private string _testStatus = "Testing network connection capabilities.";
     private string _testMessage = "Test in progress";
     private string _shouldEnableNatMessage = "";
     public bool _doneTesting = false;
     private bool _probingPublicIP = false;
     public bool connectable = false;
-    /*
     private float _timer;
     private float _time;
     private float _refreshRate = 5f;
     ConnectionTesterStatus connectionTestResult = ConnectionTesterStatus.Undetermined;
-    */
-    
     bool useNat = false;
+    */
 
     void Awake() {
         MasterServer.port = 23466;
@@ -38,12 +37,6 @@ public class ServerList : MonoBehaviour {
 
         Debug.Log("Server #" + server + ", IP #" + ip);
         Debug.Log("Masterserver IP: " + MasterServer.ipAddress);
-
-        JoinLobby();
-    }
-    
-    private void JoinLobby() {
-        Application.LoadLevel("Lobby");
     }
 
     // Server connection tests // 
@@ -57,7 +50,7 @@ public class ServerList : MonoBehaviour {
     }
 
     
-
+    
     ///
     /// This is for the Online/Offline in the UI
     /// But it doesn't work yet
@@ -69,13 +62,11 @@ public class ServerList : MonoBehaviour {
             _time = _refreshRate + Time.time;
         }
     }
-    */
-    /*
+    
     public void TestConnectionFunc(string server, string ip) {
         Network.GetLastPing(Network.player);
     }
-    */
-    /*
+    
     public bool TestConnectionFunc(string ip) {
         MasterServer.ipAddress = ip;
         Network.natFacilitatorIP = ip;
@@ -170,6 +161,6 @@ public class ServerList : MonoBehaviour {
         Debug.Log(connection);
         return connection;
     }
-     * */
+    */
 
 }

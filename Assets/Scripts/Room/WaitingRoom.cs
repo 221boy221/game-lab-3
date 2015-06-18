@@ -19,6 +19,7 @@ public class WaitingRoom : MonoBehaviour {
     }
 
     public void OnJoin() {
+        _userInfo = GameObject.FindGameObjectWithTag("UserData").GetComponent<UserInfo>();
         _allUserInfo.Add(_userInfo.guid, _userInfo.name);
         RefreshList();
     }

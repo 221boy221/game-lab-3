@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RoomList
   - ServerList
+  - UserData
   layers:
   - Default
   - TransparentFX
