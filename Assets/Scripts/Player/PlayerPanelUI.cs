@@ -12,6 +12,10 @@ public class PlayerPanelUI : MonoBehaviour {
     private string _playerName;
 
     void Awake() {
+        UpdateUI();
+    }
+
+    void UpdateUI() {
         _playerLvlTxt.text = "Lvl " + _playerLvl;
         _playerNameTxt.text = _playerName;
     }
@@ -25,6 +29,7 @@ public class PlayerPanelUI : MonoBehaviour {
         }
         set {
             _playerLvl = value;
+            UpdateUI();
         }
     }
 
@@ -34,6 +39,7 @@ public class PlayerPanelUI : MonoBehaviour {
         }
         set {
             _playerName = value;
+            UpdateUI();
         }
     }
 

@@ -133,11 +133,11 @@ GameObject:
   - 114: {fileID: 11413370}
   m_Layer: 5
   m_Name: WaitingRoom
-  m_TagString: RoomList
+  m_TagString: WaitingRoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &11413370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb31a70b0be17a84bbb7172ac0867dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerPanelPref: {fileID: 0}
-  _playerList: {fileID: 0}
+  _playerPanelPref: {fileID: 188568, guid: abc1bb05e851530439b3c2a3f5c1fced, type: 2}
+  _playerList: {fileID: 22484952}
 --- !u!114 &11430246
 MonoBehaviour:
   m_ObjectHideFlags: 1

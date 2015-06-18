@@ -44,6 +44,7 @@ GameObject:
   - 224: {fileID: 22426670}
   - 222: {fileID: 22289452}
   - 114: {fileID: 11421448}
+  - 114: {fileID: 11404168}
   m_Layer: 5
   m_Name: PlayerPanel
   m_TagString: Untagged
@@ -51,6 +52,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11404168
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ea544e15009a640b8f279017f15582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerLvlTxt: {fileID: 11422262}
+  _playerNameTxt: {fileID: 11478074}
 --- !u!114 &11421448
 MonoBehaviour:
   m_ObjectHideFlags: 1

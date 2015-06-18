@@ -11,9 +11,11 @@ public class RoomList : MonoBehaviour {
     private HostData[] _hostData;
     private float _refreshRequestLength = 2f;
     private Dictionary<int, GameObject> _roomList = new Dictionary<int,GameObject>();
+    private Text _refreshTxt;
+    [SerializeField] private GameObject _waitingRoom;
     public GameObject roomPanelPref;
     public Transform roomBrowser;
-    private Text _refreshTxt;
+    
 
 
     void Start() {
@@ -126,7 +128,12 @@ public class RoomList : MonoBehaviour {
         Debug.Log("Connecting to host...");
         Network.Connect(_hostData[i]);
         // TODO: Replace with room's map
-        Application.LoadLevel("new");
+        //Application.LoadLevel("new");
+
+        _waitingRoom.SetActive(true);
+        _waitingRoom.GetComponent<WaitingRoom>().OnJoin(_hostData[i]);
+
+        gameObject.SetActive(false);
     }
 
 }

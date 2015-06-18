@@ -274,6 +274,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: ToggleActive
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: ToggleActive
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: OnJoin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11478372
@@ -418,7 +454,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -3.05175781e-05, y: 0}
-  m_SizeDelta: {x: 74.6000061, y: 0}
+  m_SizeDelta: {x: 61.4000015, y: 0}
   m_Pivot: {x: 1, y: .5}
 --- !u!224 &22428964
 RectTransform:
@@ -451,8 +487,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: 0}
   m_AnchorMax: {x: .5, y: 1}
-  m_AnchoredPosition: {x: -42.0750122, y: 0}
-  m_SizeDelta: {x: 297.850006, y: 0}
+  m_AnchoredPosition: {x: -5.69999981, y: 0}
+  m_SizeDelta: {x: 207.600006, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22464896
 RectTransform:
@@ -472,7 +508,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 4.57763672e-05, y: -1.52587891e-05}
-  m_SizeDelta: {x: 482, y: 0}
+  m_SizeDelta: {x: 319, y: 0}
   m_Pivot: {x: 0, y: .5}
 --- !u!224 &22489336
 RectTransform:

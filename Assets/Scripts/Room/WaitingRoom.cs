@@ -8,21 +8,64 @@ using System.Collections.Generic;
 
 public class WaitingRoom : MonoBehaviour {
 
+    /*
     [SerializeField] private GameObject _playerPanelPref;
     [SerializeField] private Transform _playerList;
     private UserInfo _userInfo;
     private Dictionary<string, string> _allUserInfo = new Dictionary<string, string>();
     private Dictionary<string, GameObject> _allUserPanels = new Dictionary<string, GameObject>();
+    */
 
+    public void OnJoin(HostData roomData) {
+        /// For now:
+        if (roomData.connectedPlayers < roomData.playerLimit) {
+            // load lvl
+        }
+        
+        //StartCoroutine(Join(1f));
+    }
+    
     public void Disconnect() {
         Network.Disconnect();
+        //RefreshList();
     }
+    
 
-    public void OnJoin() {
+
+    /// (CURRENTLY DISABLED, NOT WORKING YET)
+    /// Advanced: player panels that contain all connected users their usernames and lvls ///
+    /// 
+
+
+    /*
+    public IEnumerator Join(float f) {
+        yield return new WaitForSeconds(f);
         _userInfo = GameObject.FindGameObjectWithTag("UserData").GetComponent<UserInfo>();
-        _allUserInfo.Add(_userInfo.guid, _userInfo.name);
-        RefreshList();
+        _allUserInfo.Add(_userInfo.guid, _userInfo.username);
+        foreach (NetworkPlayer player in Network.connections) {
+            Debug.Log("Lolyep " + player.guid + " , ");
+            CreatePlayerPanel(player.guid);
+        }
+        for (int i = 0; i < Network.connections.Length -1; i++) {
+            Debug.Log("lolnope");
+        }
+            //CreatePlayerPanel(_userInfo.username);
+            //RefreshList();
     }
+    
+    private void CreatePlayerPanel(string name) {
+        GameObject panelPref;
+        PlayerPanelUI panelUI;
+
+        
+        panelPref = (GameObject)Network.Instantiate(_playerPanelPref, transform.position, transform.rotation, 0);//(GameObject)Instantiate(_playerPanelPref);
+        panelPref.transform.SetParent(_playerList, false);
+
+        panelUI = panelPref.GetComponent<PlayerPanelUI>();
+        //panelUI.playerLvl = playerInfo.lvl;
+        panelUI.playerName = name;
+    }
+    
     
     public void RefreshList() {
         List<string> temp = new List<string>();
@@ -51,17 +94,5 @@ public class WaitingRoom : MonoBehaviour {
             _allUserPanels.Remove(temp2[i]);
         }
     }
-
-    private void CreatePlayerPanel(string username) {
-        GameObject panelPref;
-        PlayerPanelUI panelUI;
-
-        panelPref = (GameObject)Instantiate(_playerPanelPref);
-        panelPref.transform.SetParent(_playerList, false);
-
-        panelUI = panelPref.GetComponent<PlayerPanelUI>();
-        //panelUI.playerLvl = playerInfo.lvl;
-        panelUI.playerName = username;
-    }
-    
+    */
 }

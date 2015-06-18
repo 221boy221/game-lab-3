@@ -14,7 +14,15 @@ public class UI : MonoBehaviour {
         Application.LoadLevel(scene);
     }
 
+    public void ReloadScene() {
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
     public void QuitGame() {
         Application.Quit();
+    }
+
+    public void SetUsername(string name) {
+        GameObject.FindGameObjectWithTag("UserData").GetComponent<UserInfo>().username = name;
     }
 }
