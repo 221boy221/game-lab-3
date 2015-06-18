@@ -126,6 +126,10 @@ public class RoomList : MonoBehaviour {
         Debug.Log("Connecting to host...");
         Network.Connect(_hostData[i]);
         // TODO: Replace with room's map
+        
+    }
+    void OnConnectedToServer()
+    {
         Application.LoadLevel("new");
     }
 

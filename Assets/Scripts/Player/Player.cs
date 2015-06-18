@@ -20,7 +20,7 @@ public class Player : MonoBehaviour {
     private NetworkView _networkView;
     private bool inRange;
     public matchScript match;
-    
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -33,11 +33,12 @@ public class Player : MonoBehaviour {
         midBlock = Animator.StringToHash("BlockLow");
         body = GetComponent<Rigidbody2D>();
         _networkView = GetComponent<NetworkView>();
+        enemy = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
     }
-    void FixedUpdate() 
+    void FixedUpdate()
     {
-        if (haveControl) 
+        if (haveControl)
         {
             horiz = Input.GetAxis("Horizontal");
             Vector2 newVelocity = (transform.right * horiz * moveSpeed);
@@ -47,15 +48,17 @@ public class Player : MonoBehaviour {
             if (myVelocity != body.velocity)
             {
                 movePlayer(myVelocity);
-                if (Network.isServer) 
+                if (Network.isServer)
                 {
                     movePlayer(myVelocity);
-                } else {
-                    GetComponent<NetworkView>().RPC("movePlayer", RPCMode.Server, (Vector3)myVelocity);
+                }
+                else
+                {
+                    movePlayer(myVelocity);
+                    //GetComponent<NetworkView>().RPC("movePlayer", RPCMode.Server, (Vector3)myVelocity);
                 }
             }
         }
-        transform.localScale = new Vector3(Mathf.Clamp(-transform.position.x - -enemy.transform.position.x,-0.4f,0.4f),transform.localScale.y,transform.localScale.z);
     }
     void Update()
     {
@@ -109,20 +112,20 @@ public class Player : MonoBehaviour {
     }
     public void receivingDamag(int midLow)
     {
-        if(midLow == 0 && currentBaseState.fullPathHash != lowBlock)
+        if (midLow == 0 && currentBaseState.fullPathHash != lowBlock)
         {
             health -= 10;
         }
-        else if(midLow == 1 && currentBaseState.fullPathHash != midAttack)
+        else if (midLow == 1 && currentBaseState.fullPathHash != midAttack)
         {
             health -= 20;
         }
         match.UpdateHealthBar();
-        Debug.Log(health + ":" + enemy.health);
+        //Debug.Log(health + ":" + enemy.health);
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             inRange = true;
         }
@@ -135,13 +138,13 @@ public class Player : MonoBehaviour {
         }
     }
     [RPC]
-    void movePlayer(Vector3 playerVelocity) 
+    void movePlayer(Vector3 playerVelocity)
     {
         body.velocity = playerVelocity;
         GetComponent<NetworkView>().RPC("updatePlayer", RPCMode.OthersBuffered, transform.position);
     }
     [RPC]
-    void updatePlayer(Vector3 playerPos) 
+    void updatePlayer(Vector3 playerPos)
     {
         transform.position = playerPos;
     }
