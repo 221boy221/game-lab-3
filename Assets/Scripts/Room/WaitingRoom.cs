@@ -21,14 +21,38 @@ public class WaitingRoom : MonoBehaviour {
         _loader = GameObject.FindGameObjectWithTag("SceneSwitcher").GetComponent<loader>();
     }
 
+    void OnServerInitialized() {
+        Debug.Log("Server initialized and ready");
+    }
+ 
+    void OnPlayerConnected(NetworkPlayer player) {
+        Debug.Log("Player " + " connected from " + player.ipAddress);
+        Debug.Log("Player slots: " + Network.connections.Length + "/" + Network.maxConnections);
+        
+    }
+
     public void OnJoin(HostData roomData) {
-        /// For now:
-        if (roomData.connectedPlayers < roomData.playerLimit) {
-            // load lvl
+        Debug.Log("OnJoin");
+        StartCoroutine("Game");
+    }
+
+    IEnumerator Game() {
+        Debug.Log("Waiting...");
+
+        yield return new WaitForSeconds(2f);
+        if (Network.isServer) {
+            Debug.Log("Server");
+        } else if (Network.isClient) {
+            Debug.Log("Client");
+        }
+
+        Debug.Log("Done");
+
+        if (Network.connections.Length >= Network.maxConnections) {
+            Debug.Log("Player Limit reached, ready to start game.");
             _loader.load();
         }
         
-        //StartCoroutine(Join(1f));
     }
     
     public void Disconnect() {

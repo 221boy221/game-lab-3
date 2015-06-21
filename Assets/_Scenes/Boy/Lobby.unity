@@ -1171,8 +1171,7 @@ MonoBehaviour:
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1188,8 +1187,7 @@ MonoBehaviour:
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2300,11 +2298,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 524440939}
---- !u!1 &553003145
+--- !u!1 &553003145 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 191888, guid: 08535d987916c1e44ba1809cd362a321, type: 2}
   m_PrefabInternal: {fileID: 1827843667}
---- !u!114 &553003146
+--- !u!114 &553003146 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11413370, guid: 08535d987916c1e44ba1809cd362a321,
     type: 2}
@@ -2688,6 +2686,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &674310211
 MonoBehaviour:
@@ -4054,7 +4053,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1124991055}
---- !u!224 &1199936614
+--- !u!224 &1199936614 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22432940, guid: 08535d987916c1e44ba1809cd362a321,
     type: 2}
@@ -4542,8 +4541,7 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 608701505}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4554,8 +4552,7 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1310720685}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4825,7 +4822,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1355057545}
---- !u!224 &1362991640
+--- !u!224 &1362991640 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22410260, guid: 08535d987916c1e44ba1809cd362a321,
     type: 2}
@@ -5421,8 +5418,7 @@ MonoBehaviour:
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6413,6 +6409,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &1766104083
 Transform:
   m_ObjectHideFlags: 0
@@ -7014,22 +7011,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1840048251
+--- !u!224 &1840048251 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22480668, guid: 6a69a9700c886474c8c783aecc4dd2a4,
     type: 2}
   m_PrefabInternal: {fileID: 1840048250}
---- !u!1 &1840048252
+--- !u!1 &1840048252 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 181452, guid: 6a69a9700c886474c8c783aecc4dd2a4, type: 2}
   m_PrefabInternal: {fileID: 1840048250}
---- !u!114 &1840048253
+--- !u!114 &1840048253 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11481556, guid: 6a69a9700c886474c8c783aecc4dd2a4,
     type: 2}
   m_PrefabInternal: {fileID: 1840048250}
   m_Script: {fileID: 11500000, guid: 67667f63faac98446bdbd29199cc739e, type: 3}
---- !u!114 &1840048254
+--- !u!114 &1840048254 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11459850, guid: 6a69a9700c886474c8c783aecc4dd2a4,
     type: 2}

@@ -125,7 +125,7 @@ public class RoomList : MonoBehaviour {
     }
 
     public void Join(int i) {
-        Debug.Log("Connecting to host...");
+        Debug.Log("Connecting to host... " + _hostData[i]);
         Network.Connect(_hostData[i]);
 
         _waitingRoom.SetActive(true);
